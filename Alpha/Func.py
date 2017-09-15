@@ -27,8 +27,8 @@ def shape_shower(data, title='模板', label='模具', legend=False, grid=True):
     用于显示物品的几何信息
     其中data需为numpy.ndarray
     """
-    x = rows[np.where(data == 1)]
-    y = cols[np.where(data == 1)]
+    x = rows[np.where(data > 0)]
+    y = cols[np.where(data > 0)]
     plt.title(title + '几何信息示意图')
     plt.xlabel('正方形托盘边(mm)')
     plt.ylabel('正方形托盘边(mm)')
