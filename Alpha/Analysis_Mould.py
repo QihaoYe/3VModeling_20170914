@@ -11,12 +11,6 @@ import matplotlib.pyplot as plt
 
 data = pd.read_excel('../A/A题附件.xls', sheetname=1, header=None).values
 # Get the data from attachment
-# mid_line = np.average(data[255:257, :], axis=0)
-# plt.title('模具中线处对应接受射线能量强度-方向示意图')
-# plt.xlabel('方向')
-# plt.ylabel('中线处对应接受射线能量强度')
-# plt.plot(np.linspace(1, 180, 180), mid_line)
-# plt.show()
 for i in range(512):
     plt.title('Receiver#%03d Value - Direction Diagram' % (i + 1))
     plt.xlabel('Direction')
