@@ -10,5 +10,4 @@ import numpy as np
 
 data = pd.read_excel('../A/A题附件.xls', sheetname=1, header=None).values
 # Get the data from attachment
-for i in range(180):
-    print(i, np.min(data[:, i]))
+print(np.max(data))
