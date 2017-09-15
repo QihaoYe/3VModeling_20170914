@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Team19029042'
 __data__ = '2017/9/15'
-__all__ = ['shape_shower']
+__all__ = ['shape_shower', 'location_max_finder']
 
 
 import io
@@ -39,3 +39,19 @@ def shape_shower(data, title='模板', label='模具', legend=False, grid=True):
     if grid:
         plt.grid(True)
     plt.show()
+
+
+def location_max_finder(data):
+    """
+    用于寻找给定数据中的最大值的具体位置
+    其中data需为numpy.ndarray
+    """
+    h, w = data.shape
+    value = np.max(data)
+    row = np.linspace(0, w - 1, w).tolist()
+    rows = np.array([row] * h)
+    col = np.linspace(0, h - 1, h).tolist()
+    cols = np.array([col] * w).T
+    x = rows[np.where(data == value)]
+    y = cols[np.where(data == value)]
+    print([int(y[0]), int(x[0])], value)
