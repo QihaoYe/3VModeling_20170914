@@ -22,7 +22,6 @@ rows = np.array([row] * 256)
 cols = rows.T
 x = rows[np.where(data == 1)]
 y = cols[np.where(data == 1)]
-print(len(x))
 plt.title('模板几何信息示意图')
 plt.xlabel('正方形托盘边(mm)')
 plt.ylabel('正方形托盘边(mm)')
