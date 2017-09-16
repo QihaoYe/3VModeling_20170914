@@ -36,7 +36,7 @@ def write_data(address, data, sheetname='page_1'):
     """
     data_df = pd.DataFrame(data)
     writer = pd.ExcelWriter(address)
-    data_df.to_excel(writer, sheetname, float_format='%.5f')
+    data_df.to_excel(writer, sheetname, float_format='%.4f')
     writer.save()
 
 
