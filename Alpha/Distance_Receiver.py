@@ -8,6 +8,7 @@ from Func import load_data, intensity_direction_shower, differentiate
 
 
 LENGTH = 8
+TIME = 2
 data = load_data('../A/A题附件.xls', sheetname=1, header=None)
 # Get the data from attachment
-intensity_direction_shower(differentiate(data, 2), 60)
+diff = differentiate(data, TIME)

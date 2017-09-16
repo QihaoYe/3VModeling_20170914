@@ -64,20 +64,25 @@ def get_boundary(value, grid=5, m='max'):
         return np.floor(value) * grid
 
 
-def intensity_direction_shower(data, direction=0):
+def intensity_direction_shower(data, direction=0, time=0, grid=True, save=False):
     """
     用于显示强度数据的图像
     """
     h, w = data.shape
     maximum = get_boundary(np.max(data), m='max')
     minimum = get_boundary(np.min(data), m='min')
-    plt.title('Direction#%03d Diff Value - Receiver Diagram' % (direction + 1))
+    string = '' if time == 0 else ' Diff' if time == 1 else ' Diff of Order %d' % time
+    plt.title('Direction#%03d%s Value - Receiver Diagram' % (direction + 1, string))
     plt.xlabel('Receiver')
-    plt.ylabel('Direction#%03d Diff Value' % (direction + 1))
+    plt.ylabel('Direction#%03d%s Value' % (direction + 1, string))
     plt.plot(np.linspace(1, h, h), data[:, direction])
     plt.axis([0, h, minimum, maximum])
-    plt.grid(True)
-    plt.show()
+    plt.grid(grid)
+    if save:
+        plt.savefig('../direction_receiver_%d/direction%03d.png' % (time, direction + 1))
+        plt.close('all')
+    else:
+        plt.show()
 
 
 def location_max_finder(data):
