@@ -2,12 +2,13 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Team19029042'
 __data__ = '2017/9/15'
-__all__ = ['shape_shower', 'location_max_finder']
+__all__ = ['load_data', 'shape_shower', 'location_max_finder']
 
 
 import io
 import sys
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 
@@ -20,6 +21,13 @@ N = 256
 row = np.linspace(0, SIDE_LENGTH, N).tolist()
 rows = np.array([row] * N)
 cols = rows.T
+
+
+def load_data(address, sheetname=0, header=None):
+    """
+    从附件中得到数据
+    """
+    return pd.read_excel(address, sheetname=sheetname, header=header).values
 
 
 def shape_shower(data, title='模板', label='模具', legend=False, grid=True):

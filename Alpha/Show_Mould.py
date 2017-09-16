@@ -4,10 +4,9 @@ __author__ = 'Team19029042'
 __data__ = '2017/9/14'
 
 
-import pandas as pd
-from Func import shape_shower
+from Func import load_data, shape_shower
 
 
-data = pd.read_excel('../A/A题附件.xls', sheetname=0, header=None).values
+data = load_data('../A/A题附件.xls', sheetname=0, header=None)
 # Get the data from attachment
 shape_shower(data)

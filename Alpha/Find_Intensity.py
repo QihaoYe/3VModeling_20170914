@@ -4,11 +4,10 @@ __author__ = 'Team19029042'
 __data__ = '2017/9/15'
 
 
-import pandas as pd
-from Func import location_max_finder
+from Func import load_data, location_max_finder
 
 
-data = pd.read_excel('../A/A题附件.xls', sheetname=1, header=None).values
+data = load_data('../A/A题附件.xls', sheetname=1, header=None)
 
 
 location_max_finder(data)

@@ -5,11 +5,11 @@ __data__ = '2017/9/15'
 
 
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
+from Func import load_data
 
 
-data = pd.read_excel('../A/A题附件.xls', sheetname=1, header=None).values
+data = load_data('../A/A题附件.xls', sheetname=1, header=None)
 # Get the data from attachment
 for i in range(512):
     plt.title('Receiver#%03d Value - Direction Diagram' % (i + 1))
