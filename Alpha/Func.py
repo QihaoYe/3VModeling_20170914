@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Team19029042'
 __data__ = '2017/9/15'
-__all__ = ['load_data', 'shape_shower', 'location_max_finder', 'differentiate', 'intensity_direction_shower']
+__all__ = ['load_data', 'shape_shower', 'location_max_finder', 'differentiate', 'intensity_direction_shower', 'write_data']
 
 
 import io
@@ -28,6 +28,16 @@ def load_data(address, sheetname=0, header=None):
     从附件中得到数据
     """
     return pd.read_excel(address, sheetname=sheetname, header=header).values
+
+
+def write_data(address, data, sheetname='page_1'):
+    """
+    将数据写入到Excel文件中
+    """
+    data_df = pd.DataFrame(data)
+    writer = pd.ExcelWriter(address)
+    data_df.to_excel(writer, sheetname, float_format='%.5f')
+    writer.save()
 
 
 def shape_shower(data, title='模板', label='模具', legend=False, grid=True):
