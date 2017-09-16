@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Team19029042'
 __data__ = '2017/9/15'
-__all__ = ['load_data', 'shape_shower', 'location_max_finder', 'differentiate', 'intensity_direction_shower', 'write_data']
+__all__ = ['load_data', 'shape_shower', 'location_max_finder', 'differentiate', 'intensity_direction_shower', 'write_data', 'mix_pics']
 
 
 import io
@@ -118,3 +118,15 @@ def differentiate(data, n=1):
     """
     return np.diff(data, n=n, axis=0)
 
+
+def mix_pics(pic1, pic2, address, weight=[1, 1]):
+    """
+    用来融合两张图片
+    """
+    import cv2
+    img1 = cv2.imread(pic1)
+    img2 = cv2.imread(pic2)
+    weight1 = weight[0] / sum(weight)
+    weight2 = weight[1] / sum(weight)
+    img_mix = cv2.addWeighted(img1, weight1, img2, weight2, 0)
+    cv2.imwrite(address, img_mix)
