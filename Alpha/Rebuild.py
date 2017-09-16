@@ -12,6 +12,7 @@ from Func import load_data
 data = load_data('../A/A题附件.xls', sheetname=1, header=None)
 # Get the data from attachment
 a = data[:, 60]
+# plt.plot(a)
 transformed=np.fft.fft(a)
 # plt.plot(transformed)
 shifted=np.fft.fftshift(transformed)
