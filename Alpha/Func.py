@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Team19029042'
 __data__ = '2017/9/15'
-__all__ = ['load_data', 'shape_shower', 'location_max_finder']
+__all__ = ['load_data', 'shape_shower', 'location_max_finder', 'differentiate', 'intensity_direction_shower']
 
 
 import io
@@ -33,7 +33,7 @@ def load_data(address, sheetname=0, header=None):
 def shape_shower(data, title='模板', label='模具', legend=False, grid=True):
     """
     用于显示物品的几何信息
-    其中data需为numpy.ndarray
+    其中data要求为numpy.ndarray
     """
     x = rows[np.where(data > 0)]
     y = cols[np.where(data > 0)]
@@ -49,10 +49,41 @@ def shape_shower(data, title='模板', label='模具', legend=False, grid=True):
     plt.show()
 
 
+def get_boundary(value, grid=5, m='max'):
+    """
+    用于获得作图所需的上界和下界
+    """
+    if isinstance(value, int) is False and isinstance(value, float) is False:
+        raise Exception('Value must be integer or float!')
+
+    if m.lower() == 'max':
+        value /= grid
+        return np.ceil(value) * grid
+    if m.lower() == 'min':
+        value /= grid
+        return np.floor(value) * grid
+
+
+def intensity_direction_shower(data, direction=0):
+    """
+    用于显示强度数据的图像
+    """
+    h, w = data.shape
+    maximum = get_boundary(np.max(data), m='max')
+    minimum = get_boundary(np.min(data), m='min')
+    plt.title('Direction#%03d Diff Value - Receiver Diagram' % (direction + 1))
+    plt.xlabel('Receiver')
+    plt.ylabel('Direction#%03d Diff Value' % (direction + 1))
+    plt.plot(np.linspace(1, h, h), data[:, direction])
+    plt.axis([0, h, minimum, maximum])
+    plt.grid(True)
+    plt.show()
+
+
 def location_max_finder(data):
     """
     用于寻找给定数据中的最大值的具体位置
-    其中data需为numpy.ndarray
+    其中data要求为numpy.ndarray
     """
     h, w = data.shape
     value = np.max(data)
@@ -63,3 +94,12 @@ def location_max_finder(data):
     x = rows[np.where(data == value)]
     y = cols[np.where(data == value)]
     print([int(y[0]), int(x[0])], value)
+
+
+def differentiate(data, n=1):
+    """
+    用于对数据进行求导
+    其中data要求为numpy.ndarray
+    """
+    return np.diff(data, n=n, axis=0)
+
