@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-__author__ = 'Team19029042'
-__data__ = '2017/9/17'
-
-
 import numpy as np
 from Func import write_data
 

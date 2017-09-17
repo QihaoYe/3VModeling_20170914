@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-__author__ = 'Team19029042'
-__data__ = '2017/9/15'
 __all__ = ['load_data', 'shape_shower', 'location_max_finder', 'differentiate', 'intensity_direction_shower', 'write_data', 'mix_pics']
-
-
 import io
 import sys
 import numpy as np
