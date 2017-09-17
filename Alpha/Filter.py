@@ -1,9 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-__author__ = 'Team19029042'
-__data__ = '2017/9/17'
-
-
 import numpy as np
 from Func import load_data, write_data
 
@@ -19,3 +15,4 @@ q3 = load_data('./extra/problem3.xls')
 q3[np.where(q3 < 0.1)] = 0
 write_data('./extra/problem2.xlsx', q2 * scale, 'q2')
 write_data('./extra/problem3.xlsx', q3 * scale, 'q3')
+# 讲得到的结果进行过滤和数值优化得到最终的结果并储存

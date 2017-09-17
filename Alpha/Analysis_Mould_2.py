@@ -10,7 +10,6 @@ from Func import load_data
 
 
 data = load_data('../A/A题附件.xls', sheetname=1, header=None)
-# Get the data from attachment
 for i in range(180):
     plt.title('Direction#%03d Value - Receiver Diagram' % (i + 1))
     plt.xlabel('Receiver')
@@ -20,3 +19,4 @@ for i in range(180):
     plt.grid(True)
     plt.savefig('../direction_receiver/direction%03d.png' % (i + 1))
     plt.close('all')
+# 用于输出方向-接收器的图(对于每一个方向分别作图，共180张)

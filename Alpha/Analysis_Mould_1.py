@@ -19,3 +19,4 @@ for i in range(512):
     plt.grid(True)
     plt.savefig('../receiver_direction/receiver%03d.png' % (i + 1))
     plt.close('all')
+# 用于输出接收器-方向的图(对于每一个接收器分别作图，共512张)
