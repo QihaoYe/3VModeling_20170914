@@ -15,4 +15,4 @@ q3 = load_data('./extra/problem3.xls')
 q3[np.where(q3 < 0.1)] = 0
 write_data('./extra/problem2.xlsx', q2 * scale, 'q2')
 write_data('./extra/problem3.xlsx', q3 * scale, 'q3')
-# 讲得到的结果进行过滤和数值优化得到最终的结果并储存
+# 将得到的结果进行过滤和数值优化得到最终的结果并储存
