@@ -13,3 +13,13 @@
 *.zip
 Alpha/Data_Shower.m
 *.ppt
+Attachment/Analysis_Mould_1.py
+Attachment/Analysis_Mould_2.py
+Attachment/Analysis_Mould_mid.py
+Attachment/Show_Mould.py
+Attachment/Rebuild.m
+Attachment/Pic_Mixer.py
+Attachment/Func.py
+Attachment/Frame_builder.py
+Attachment/Find_Intensity.py
+Attachment/Filter.py
