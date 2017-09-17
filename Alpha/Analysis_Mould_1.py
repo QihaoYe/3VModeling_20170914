@@ -10,7 +10,6 @@ from Func import load_data
 
 
 data = load_data('../A/A题附件.xls', sheetname=1, header=None)
-# Get the data from attachment
 for i in range(512):
     plt.title('Receiver#%03d Value - Direction Diagram' % (i + 1))
     plt.xlabel('Direction')

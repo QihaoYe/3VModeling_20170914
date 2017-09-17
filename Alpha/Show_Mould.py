@@ -8,5 +8,4 @@ from Func import load_data, shape_shower
 
 
 data = load_data('../A/A题附件.xls', sheetname=0, header=None)
-# Get the data from attachment
 shape_shower(data)

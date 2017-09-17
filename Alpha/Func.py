@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-# Change encoding into utf-8 for correctly printing
+# 以防中文部分出现乱码
 
 
 SIDE_LENGTH = 100
